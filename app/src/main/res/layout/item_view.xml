@@ -1,43 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="wrap_content"
-    android:background="@android:color/holo_green_light"
-    android:layout_margin="10dp">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:elevation="100dp"
+    card_view:cardCornerRadius="0dp"
+    android:layout_margin="5dp"
+    android:foreground="?android:selectableItemBackground">
 
 
-    <TextView
-        android:id="@+id/timeRV"
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Time"/>
-    <TextView
-        android:id="@+id/tempRV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Temperature"/>
-    <TextView
-        android:id="@+id/feelsTempRV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Feels Like"/>
-    <TextView
-        android:id="@+id/summaryRV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Summary"/>
-    <TextView
-        android:id="@+id/iconRV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
+        android:layout_margin="10dp">
 
-        android:text="Icon"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/timeRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Time"/>
+        <TextView
+            android:id="@+id/tempRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Temperature"/>
+        <TextView
+            android:id="@+id/feelsTempRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Feels Like"/>
+        <TextView
+            android:id="@+id/summaryRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Summary"/>
+        <TextView
+            android:id="@+id/iconRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+
+            android:text="Icon"/>
+
+    </LinearLayout>
+
+
+
+</android.support.v7.widget.CardView>
+
+
+

@@ -7,15 +7,35 @@
     android:layout_height="match_parent"
     tools:context="com.example.franciscoandrade.weatherapp.MainActivity">
 
-    <TextView
-        android:id="@+id/textTV"
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:background="@android:color/holo_red_light"
-         />
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:background="@drawable/weather_clouds_night"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/textTV"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/summaryHour"
@@ -23,9 +43,9 @@
         android:layout_height="wrap_content"
         android:text="Summary Hour"
         android:textAlignment="center"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_marginTop="5dp"
-        android:background="@android:color/holo_blue_light"/>
+        />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewContainer"
         android:layout_width="match_parent"
