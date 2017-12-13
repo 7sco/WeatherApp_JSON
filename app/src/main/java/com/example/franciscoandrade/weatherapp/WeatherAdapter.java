@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -35,45 +36,50 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolderWeather holder, int position) {
-
-
         DateFormat ddf3= DateFormat.getTimeInstance(DateFormat.SHORT, Locale.ENGLISH);
         ddf3.setTimeZone(TimeZone.getTimeZone("EST"));
-
         Date date2;
         long unixSeconds2;
-
         unixSeconds2= listData.get(position).getTime();
         date2= new Date(unixSeconds2*1000L);
-
-
         String time=ddf3.format(date2);
-
-
-//        for (int i=0; i< hourly.getData().length; i++){
-//
-//            unixSeconds2 =response.body().getHourly().getData()[i].getTime();
-//            date2= new Date(unixSeconds2*1000L);
-//
-//            String format4= ddf3.format(date2);
-//
-//            result2+=hourly.getData()[i].getTemperature()+"\u00b0C+ ---"+format4+"\n";
-//
-//            listData.add(response.body().getHourly().getData()[i]);
-//
-//        }
-
-
-
-
-
-        holder.timeRV.setText("Time: "+time);
-        holder.tempRV.setText("Temperature: "+String.valueOf(listData.get(position).getTemperature())+"\u00b0C");
-        holder.feelsTempRV.setText("Feels Like: "+String.valueOf(listData.get(position).getApparentTemperature())+"\u00b0C");
+        holder.timeRV.setText(time);
+        holder.tempRV.setText(String.valueOf((int)listData.get(position).getTemperature())+"\u00b0C");
+        holder.feelsTempRV.setText(String.valueOf((int)listData.get(position).getApparentTemperature())+"\u00b0C");
         holder.summaryRV.setText(listData.get(position).getSummary()+"");
-        holder.iconRV.setText("Icon: "+listData.get(position).getIcon());
 
-
+        switch (listData.get(position).getIcon()){
+            case "clear-day":
+                holder.iconRV.setBackgroundResource(R.drawable.weather_clear);
+                break;
+            case "clear-night":
+                holder.iconRV.setBackgroundResource(R.drawable.weather_clear_night);
+                break;
+            case "rain":
+                holder.iconRV.setBackgroundResource(R.drawable.weather_rain_day);
+                break;
+            case "snow":
+                holder.iconRV.setBackgroundResource(R.drawable.weather_snow);
+                break;
+            case "sleet":
+                holder.iconRV.setBackgroundResource(R.drawable.weather_hail);
+                break;
+            case "wind":
+                holder.iconRV.setBackgroundResource(R.drawable.weather_wind);
+                break;
+            case "fog":
+                holder.iconRV.setBackgroundResource(R.drawable.weather_fog);
+                break;
+            case "cloudy":
+                holder.iconRV.setBackgroundResource(R.drawable.weather_clouds);
+                break;
+            case "partly-cloudy-day":
+                holder.iconRV.setBackgroundResource(R.drawable.weather_few_clouds);
+                break;
+            case "partly-cloudy-night":
+                holder.iconRV.setBackgroundResource(R.drawable.weather_few_clouds_night);
+                break;
+        }
     }
 
     @Override
@@ -83,9 +89,8 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
 
     public class ViewHolderWeather extends RecyclerView.ViewHolder {
 
-        TextView timeRV, tempRV, feelsTempRV, summaryRV, iconRV;
-
-
+        TextView timeRV, tempRV, feelsTempRV, summaryRV;
+        ImageView iconRV;
 
         public ViewHolderWeather(View itemView) {
             super(itemView);
@@ -94,9 +99,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
             tempRV=(TextView)itemView.findViewById(R.id.tempRV);
             feelsTempRV=(TextView)itemView.findViewById(R.id.feelsTempRV);
             summaryRV=(TextView)itemView.findViewById(R.id.summaryRV);
-            iconRV=(TextView)itemView.findViewById(R.id.iconRV);
-
-
+            iconRV=(ImageView) itemView.findViewById(R.id.iconRV);
 
         }
     }
